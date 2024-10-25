@@ -9,6 +9,7 @@ class OpenAIClient:
         Args:
             api_key (str, optional): OpenAI API key. If not provided, will look for OPENAI_API_KEY environment variable.
         """
+        client = OpenAIClient(api_key='your-api-key-here')
         self.api_key = api_key or os.getenv('OPENAI_API_KEY')
         if not self.api_key:
             raise ValueError("API key must be provided either directly or through OPENAI_API_KEY environment variable")
