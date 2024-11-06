@@ -29,7 +29,7 @@ def translate_text(text: str, source_lang: str = "auto", target_lang: str = "en"
         print(f"Error: {response.status_code}, {response.text}")
         return ""
 
-# Example usage
+# Main
 if __name__ == "__main__":
     translated_text = translate_text("Ciao!")
     print("Translated text:", translated_text)
