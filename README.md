@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gltrujillo/gciProject">
-    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="500" height="500">
+    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="350" height="350">
   </a>
 
 
