@@ -1,16 +1,16 @@
 # README
 
 ## AUTHOR INFO
-Name: Glenda Trujillo, Aidan Blanco, Marwa Arghandiwal, Brandon Jimenez
-Student ID: 2444868, 
-Chapman Email: gltrujillo@chapman.edu, aidblanco@chapman.edu, arghandiwal@chapman.edu, bjimenez@chapman.edu
-Course: GCI-200-16
-Assignment: Final Deliverable - SmartClass AI Website
+### Name: Glenda Trujillo, Aidan Blanco, Marwa Arghandiwal, Brandon Jimenez
+### Student ID: 2444868, 
+### Chapman Email: gltrujillo@chapman.edu, aidblanco@chapman.edu, arghandiwal@chapman.edu, bjimenez@chapman.edu
+### Course: GCI-200-16
+### Assignment: Final Deliverable - SmartClass AI Website
 
 ## FILES
-1) README.md
-2) 
-3) 
+### 1) README.md
+### 2) 
+### 3) 
 
 ## PROJECT INFO
 Our final deliverable in response to our grand challenge is a website prototype that is able to take in voices
