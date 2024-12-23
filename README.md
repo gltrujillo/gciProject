@@ -1,32 +1,68 @@
-# README
+<a id="readme-top"></a>
 
-## AUTHOR INFO
-Names: Glenda Trujillo, Aidan Blanco, Marwa Arghandiwal, Brandon Jimenez  
-Student IDs: 2444868, 2428651, ,2441495  
-Chapman Emails: gltrujillo@chapman.edu, aidblanco@chapman.edu, arghandiwal@chapman.edu, bjimenez@chapman.edu  
-Course: GCI-200-16  
-Assignment: Final Deliverable - SmartClass AI Website  
 
-## FILES
-1) README.md  
-2) script.js  
-3) index.html
-4) .gitattributes
-5) Procfile
-6) Recording,mp3
-7) app.py
-8) main.py
-9) package-lock.json
-10) package.json  
+<br />
+<div align="center">
+  <a href="https://github.com/gltrujillo/gciProject">
+    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## PROJECT INFO
-Our final deliverable in response to our grand challenge is a website prototype that is able to take in voices
-and write out formatted notes on what is being said. It can receive vocal input through files or real-time speech
-by the user. In later versions, it should be able to create more sophisticated notes that can be used in class for
-lectures.  
-It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton
-of the finished code.
 
-## ERRORS
-N/A  
-Website transcribes to console successfully when used with API keys.
+<h3 align="center">SmartClass AI</h3>
+
+
+  <p align="center">
+Our final deliverable in response to our grand challenge is a website prototype that can take in voices and write out formatted notes on what is being said. It can receive vocal input through files. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  
+It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton of the finished code.  
+    <br />
+    <br />
+    <a href="smartclass.tech">View Demo</a>
+  </p>
+</div>
+
+
+## About The Project
+
+Our final deliverable in response to our grand challenge is a website prototype that is able to take in voices and write out formatted notes on what is being said. It can receive vocal input through files or real-time speech by the user. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  
+It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton of the finished code.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Getting Started
+
+To try out the prototype, use the link in the View Demo section at the top of the README.
+
+## Usage
+
+Takes notes based on audio files uploaded by the user. Primarily for classroom setting.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Roadmap
+
+- [ ] Accepts audio files
+- [ ] Transcribes to console
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Top contributors:
+
+<a href="https://github.com/gltrujillo/gciProject/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
+</a>
+
+
+## Contact
+
+Glenda Trujillo - gltrujillo@chapman.edu  
+Aidan Blanco - aidblanco@chapman.edu  
+Marwa Arghandiwal - arghandiwal@chapman.edu  
+Brandon Jimenez - bjimenez@chapman.edu  
+
+Project Link: [https://github.com/gltrujillo/gciProject](https://github.com/gltrujillo/gciProject)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
