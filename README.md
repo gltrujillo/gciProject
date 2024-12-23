@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gltrujillo/gciProject">
-    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="200" height="200">
+    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="500" height="500">
   </a>
 
 
@@ -22,7 +22,7 @@ This project is a proposed solution to the grand challenge of AI in Education fo
 
 ## About The Project
 
-Our final deliverable in response to our grand challenge is a website prototype that is able to take in voices and write out formatted notes on what is being said. It can receive vocal input through files or real-time speech by the user. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  
+Our final deliverable in response to our grand challenge is a website prototype that can take in voices and write out formatted notes on what is being said. It can receive vocal input through files or real-time speech by the user. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  
 It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton of the finished code.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -30,7 +30,7 @@ It should be noted that this repo does not include API keys for privacy reasons 
 
 ## Getting Started
 
-To try out the prototype, use the link in the View Demo section at the top of the README.
+To try out the prototype, use the link in the View Demo section at the top of the README. Due to the low-cost hosting provider, loading might take some time.
 
 ## Usage
 
