@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gltrujillo/gciProject">
-    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/gltrujillo/gciProject/refs/heads/main/logo.png" alt="Logo" width="200" height="200">
   </a>
 
 
@@ -47,13 +47,6 @@ Takes notes based on audio files uploaded by the user. Primarily for classroom s
 - [ ] Transcribes to console
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-### Top contributors:
-
-<a href="https://github.com/gltrujillo/gciProject/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
 
 
 ## Contact
