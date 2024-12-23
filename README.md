@@ -2,15 +2,22 @@
 
 ## AUTHOR INFO
 Names: Glenda Trujillo, Aidan Blanco, Marwa Arghandiwal, Brandon Jimenez  
-Student IDs: 2444868,   
+Student IDs: 2444868, 2428651, ,2441495  
 Chapman Emails: gltrujillo@chapman.edu, aidblanco@chapman.edu, arghandiwal@chapman.edu, bjimenez@chapman.edu  
 Course: GCI-200-16  
 Assignment: Final Deliverable - SmartClass AI Website  
 
 ## FILES
 1) README.md  
-2)  
-3)  
+2) script.js  
+3) index.html
+4) .gitattributes
+5) Procfile
+6) Recording,mp3
+7) app.py
+8) main.py
+9) package-lock.json
+10) package.json  
 
 ## PROJECT INFO
 Our final deliverable in response to our grand challenge is a website prototype that is able to take in voices
