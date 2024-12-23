@@ -15,7 +15,7 @@
 This project is a proposed solution to the grand challenge of AI in Education for the course GCI-200-16.
     <br />
     <br />
-    <a href="smartclass.tech">View Demo</a>
+    <a href="https://smartclass.tech">View Demo</a>
   </p>
 </div>
 
