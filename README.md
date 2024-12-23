@@ -11,9 +11,8 @@
 <h3 align="center">SmartClass AI</h3>
 
 
-  <p align="right">
-Our final deliverable in response to our grand challenge is a website prototype that can take in voices and write out formatted notes on what is being said. It can receive vocal input through files. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  <br />
-It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton of the finished code.  
+  <p align="center">
+This project is a proposed solution to the grand challenge of AI in Education for the course GCI-200-16.
     <br />
     <br />
     <a href="smartclass.tech">View Demo</a>
