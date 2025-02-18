@@ -12,7 +12,7 @@
 
 
   <p align="center">
-This project is a proposed solution to the grand challenge of AI in Education for the course GCI-200-16.
+This project is a proposed solution to the grand challenge of AI in Education for the GCI Program.
     <br />
     <br />
     <a href="https://smartclass.tech">View Demo</a>
