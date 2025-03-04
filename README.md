@@ -22,7 +22,7 @@ This project is a proposed solution to the grand challenge of AI in Education fo
 
 ## About The Project
 
-Our final deliverable in response to our grand challenge is a website prototype that can take in voices and write out formatted notes on what is being said. It can receive vocal input through files or real-time speech by the user. In later versions, it should be able to create more sophisticated notes that can be used in class for lectures.  
+Our final deliverable in response to our grand challenge is a website prototype that can take in voices and write out formatted notes on what is being said. It can receive vocal input through sound files. In later versions, it should be able to create more sophisticated notes based on real-time voice input that can be used in class for lectures.  
 It should be noted that this repo does not include API keys for privacy reasons and that these files are a skeleton of the finished code.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -30,7 +30,7 @@ It should be noted that this repo does not include API keys for privacy reasons 
 
 ## Getting Started
 
-To try out the prototype, use the link in the View Demo section at the top of the README. Due to the low-cost hosting provider, loading might take some time.
+To try out the prototype, use the link in the View Demo section at the top of the README. Due to the low-cost hosting provider, loading might take a few minutes.
 
 ## Usage
 
@@ -43,6 +43,7 @@ Takes notes based on audio files uploaded by the user. Primarily for classroom s
 ## Roadmap
 
 - [ ] Accepts audio files
+- [ ] Summarizes input
 - [ ] Transcribes to console
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
