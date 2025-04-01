@@ -95,6 +95,7 @@ def generate_notes():
         return jsonify({"error": str(e)}), 500
 
 
+
 @app.route("/upload", methods=["POST"])
 def upload_file():
     if "file" not in request.files:
@@ -104,6 +105,9 @@ def upload_file():
     if file.filename == "":
         return jsonify({"error": "No file selected"}), 400
 
+    # Get the translation option from the form data
+    translate = request.form.get("translate") == "true"  # Check if the translate checkbox was checked
+
     # Save the uploaded file
     file_path = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
     file.save(file_path)
@@ -111,12 +115,22 @@ def upload_file():
     try:
         # Perform transcription and summarization
         output_file_path = "notes.txt"
-        transcribe_and_summarize(file_path, output_file_path)
+        transcript = transcribe_audio(file_path)
+        summary = summarize_text(transcript)
+        
+        # If translation is requested, translate the summary
+        if translate:
+            summary = translate_text(summary)
+
+        # Save the (possibly translated) summary to a file
+        with open(output_file_path, "w") as f:
+            f.write(summary)
 
         # Return success message
         return jsonify({"message": f"Notes generated and saved to {output_file_path}"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 
