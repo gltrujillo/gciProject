@@ -1,10 +1,15 @@
+import os
 import requests
 import time
 import openai
 
-# Set up your API keys
-ASSEMBLYAI_API_KEY = ""
-OPENAI_API_KEY = ""
+# Load API keys from environment variables
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Validate API keys
+if not ASSEMBLYAI_API_KEY or not OPENAI_API_KEY:
+    raise ValueError("Missing API keys. Please set ASSEMBLYAI_API_KEY and OPENAI_API_KEY in environment variables.")
 
 openai.api_key = OPENAI_API_KEY
 
@@ -46,6 +51,20 @@ def summarize_text(text):
     summary = response.choices[0].message['content'].strip()
     return summary
 
+# Function to translate text using OpenAI API
+def translate_text(text, target_language="es"):
+    prompt = f"Translate the following text to {target_language}:\n\n{text}"
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        translated_text = response['choices'][0]['message']['content'].strip()
+        return translated_text
+    except Exception as e:
+        print(f"OpenAI Translation Error: {e}")
+        raise
+
 # Main function to transcribe audio, summarize it, and save the summary
 def transcribe_and_summarize(file_path, output_path="summary.txt"):
     try:
@@ -64,19 +83,6 @@ def transcribe_and_summarize(file_path, output_path="summary.txt"):
     except Exception as e:
         print("Error:", e)
 
-def translate_text(text, target_language="es"):  # Default to Spanish (you can change the target language)
-    prompt = f"Translate the following text to {target_language}:\n\n{text}"
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[{"role": "user", "content": prompt}],
-        )
-        translated_text = response['choices'][0]['message']['content'].strip()
-        return translated_text
-    except Exception as e:
-        print(f"OpenAI Translation Error: {e}")
-        raise
-    
 # Example usage
 if __name__ == "__main__":
     audio_file_path = "Recording.mp3"  # Replace with your file path

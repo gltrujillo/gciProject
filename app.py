@@ -2,16 +2,12 @@ import os
 import time
 import openai
 import requests
-import secrets
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from flask import Flask, render_template, request, jsonify
+from dotenv import load_dotenv
 
-# Set up your API keys
-ASSEMBLYAI_API_KEY = ""
-OPENAI_API_KEY = ""
-
-openai.api_key = OPENAI_API_KEY
+load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -19,6 +15,16 @@ CORS(app)  # Allow cross-origin requests
 socketio = SocketIO(app, cors_allowed_origins="*")  # Enable WebSocket support
 app.config["UPLOAD_FOLDER"] = "uploads"
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+
+# Load API keys from environment variables
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Validate API keys
+if not ASSEMBLYAI_API_KEY or not OPENAI_API_KEY:
+    raise ValueError("Missing API keys. Please set ASSEMBLYAI_API_KEY and OPENAI_API_KEY in environment variables.")
+
+openai.api_key = OPENAI_API_KEY
 
 # Function to transcribe audio using AssemblyAI
 def transcribe_audio(file_path):
@@ -47,7 +53,6 @@ def transcribe_audio(file_path):
         time.sleep(5)
 
 # Function to summarize text using OpenAI API
-# Function to summarize text using OpenAI API
 def summarize_text(text):
     prompt = f"Summarize the following lecture into concise notes for a student:\n\n{text}"
     try:
@@ -61,40 +66,18 @@ def summarize_text(text):
         print(f"OpenAI API Error: {e}")
         raise
 
-
-def transcribe_and_summarize(file_path, output_path="notes.txt"):
+def translate_text(text, target_language="es"):
+    prompt = f"Translate the following text to {target_language}:\n\n{text}"
     try:
-        print("Transcribing audio...")
-        transcript = transcribe_audio(file_path)
-        print("Transcription completed.")
-        
-        print("Summarizing transcript...")
-        summary = summarize_text(transcript)
-        
-        # Save summary to a file
-        with open(output_path, "w") as f:
-            f.write(summary)
-        
-        print(f"Summary saved to {output_path}.")
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        translated_text = response['choices'][0]['message']['content'].strip()
+        return translated_text
     except Exception as e:
-        print("Error:", e)
-
-# Route to trigger transcription and summarization for Recording.mp3
-@app.route("/generate_notes", methods=["GET"])
-def generate_notes():
-    try:
-        # Path to the file
-        audio_file_path = "Recording.mp3"  # Replace with your file path
-        output_file_path = "notes.txt"
-        
-        # Perform transcription and summarization
-        transcribe_and_summarize(audio_file_path, output_file_path)
-        
-        return jsonify({"message": f"Notes generated and saved to {output_file_path}"}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
+        print(f"OpenAI Translation Error: {e}")
+        raise
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
@@ -105,8 +88,8 @@ def upload_file():
     if file.filename == "":
         return jsonify({"error": "No file selected"}), 400
 
-    # Get the translation option from the form data
-    translate = request.form.get("translate") == "true"  # Check if the translate checkbox was checked
+    # Get the language from the form data (default to English)
+    language = request.form.get("language", "en")
 
     # Save the uploaded file
     file_path = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
@@ -118,11 +101,11 @@ def upload_file():
         transcript = transcribe_audio(file_path)
         summary = summarize_text(transcript)
         
-        # If translation is requested, translate the summary
-        if translate:
-            summary = translate_text(summary)
+        # If language is not English, translate the summary
+        if language != "en":
+            summary = translate_text(summary, language)
 
-        # Save the (possibly translated) summary to a file
+        # Save the summary to a file
         with open(output_file_path, "w") as f:
             f.write(summary)
 
@@ -131,25 +114,9 @@ def upload_file():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-
-# Route to serve the homepage
 @app.route("/")
 def index():
     return render_template("index.html")  # Serve the index.html page
-
-@app.after_request
-def add_security_headers(response):
-    response.headers['Content-Security-Policy'] = (
-        "default-src 'self'; "
-        "connect-src 'self' ws: wss:; "  # Allow WebSocket connections
-        "style-src 'self' 'unsafe-inline'; "  # Allow inline styles
-        "img-src 'self' data:; "  # Allow images, including data URIs
-        "font-src 'self' data: fonts.googleapis.com fonts.gstatic.com; "  # Allow fonts
-        "script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline';"  # Allow external and inline scripts
-    )
-    return response
 
 @app.route("/get_notes", methods=["GET"])
 def get_notes():
@@ -166,7 +133,6 @@ def get_notes():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 # WebSocket events
 @socketio.on("connect")
 def handle_connect():
@@ -177,12 +143,10 @@ def handle_connect():
 def handle_disconnect():
     print("Client disconnected")
 
-# Example WebSocket event handler for testing
 @socketio.on("message")
 def handle_message(data):
     print(f"Message received from client: {data}")
     socketio.send("Message received on server!")
 
-# Run the app
 if __name__ == "__main__":
     socketio.run(app, debug=True, log_output=True, use_reloader=True)
