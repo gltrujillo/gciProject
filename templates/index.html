@@ -2468,6 +2468,7 @@
                             </h1>
                           </div>
                         </div>
+
                         <div class="justify-center mt-[var(--screen-optical-compact-offset-amount)] flex h-full flex-shrink flex-col items-center overflow-hidden text-token-text-primary lg:hidden sf-hidden" style="opacity:1;will-change:auto"></div>
                         <div class="lg:w-full lg:absolute lg:bottom-8 lg:left-0">
                           <div class="mx-auto flex h-full w-full flex-col text-base lg:justify-center md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem]">
@@ -2487,9 +2488,13 @@
                               <div class="group relative flex w-full items-center"><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="dnXmp"></grammarly-extension>
                                 <div id="composer-background" class="flex w-full flex-col transition-colors contain-inline-size cursor-text rounded-3xl px-2.5 py-1 bg-[#f4f4f4] dark:bg-token-main-surface-secondary">
                                   <div class="flex min-h-[44px] items-center px-2">
+                                    
                                     <div class="max-w-full flex-1">
+                                      
                                       <div class="_prosemirror-parent_15ceg_1 text-token-text-primary max-h-[25dvh] max-h-52 overflow-auto default-browser">
+                                        
                                         <textarea class="block h-10 w-full resize-none border-0 bg-transparent px-0 py-2 text-token-text-primary placeholder:text-token-text-secondary" placeholder="Message ChatGPT" style="display:none"></textarea>
+
                                         <div contenteditable="no" translate="no" class="ProseMirror chatbox" id="prompt-textarea" spellcheck="false" data-placeholder="Select Audio Attachment to begin your notes!" style="color: gray;">Select Audio Attachment to begin your notes!</div>
                                         
                                         
@@ -2500,6 +2505,14 @@
                                   </div>
                                   <div class="flex h-[44px] items-center justify-between">
                                     <div class="flex gap-x-1">
+                                      <select id="languageSelect" class="w-[200px] p-2 rounded-lg bg-token-main-surface-secondary  mr-2">
+                                        <option value="en">English</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
+                                        <option value="zh">Chinese</option>
+                                      </select>
+                                      
                                       <div class="relative">
                                         <div class="relative">
                                           <div class="flex flex-col">
@@ -2522,7 +2535,7 @@
                                               </span>
                                             </span>
                                             
-
+                                            
 
                                             <div id="result" class="mt-4"></div> <!-- Placeholder for results -->
                                             
@@ -2544,7 +2557,7 @@
                                 </div>
                               </div>
                             </div>
-                         
+                        
                         </div>
                         <div class="hidden lg:block h-[70px]" style="opacity:1;will-change:auto">
                           <div class="mt-5 flex items-center justify-center gap-x-2 transition-opacity xl:gap-x-2.5 opacity-100 flex-nowrap">
@@ -2616,7 +2629,6 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.5.4/dist/socket.io.min.js"></script>
-
 
 <script src="/static/script.js"></script>
 

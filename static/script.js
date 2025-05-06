@@ -65,6 +65,9 @@ if (triggerFileInput && audioInput) {
 async function handleFileUpload(file) {
     const formData = new FormData();
     formData.append("file", file);
+    const languageSelect = document.getElementById("languageSelect");
+    const selectedLanguage = languageSelect ? languageSelect.value : "en"; // Default to English if dropdown not found
+    formData.append("language", selectedLanguage); // Add selected language to FormData
 
     try {
         const response = await fetch(`${window.location.origin}/upload`, {

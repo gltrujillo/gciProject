@@ -1,10 +1,15 @@
+import os
 import requests
 import time
 import openai
 
-# Set up your API keys
-ASSEMBLYAI_API_KEY = "dfa079a3948c41beade4881e5ec67472"
-OPENAI_API_KEY = "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"
+# Load API keys from environment variables
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Validate API keys
+if not ASSEMBLYAI_API_KEY or not OPENAI_API_KEY:
+    raise ValueError("Missing API keys. Please set ASSEMBLYAI_API_KEY and OPENAI_API_KEY in environment variables.")
 
 openai.api_key = OPENAI_API_KEY
 
@@ -45,6 +50,20 @@ def summarize_text(text):
     )
     summary = response.choices[0].message['content'].strip()
     return summary
+
+# Function to translate text using OpenAI API
+def translate_text(text, target_language="es"):
+    prompt = f"Translate the following text to {target_language}:\n\n{text}"
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        translated_text = response['choices'][0]['message']['content'].strip()
+        return translated_text
+    except Exception as e:
+        print(f"OpenAI Translation Error: {e}")
+        raise
 
 # Main function to transcribe audio, summarize it, and save the summary
 def transcribe_and_summarize(file_path, output_path="summary.txt"):
